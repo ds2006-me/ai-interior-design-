@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Enhanced Interior Design</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: 'Poppins', sans-serif; /* Elegant and modern font */
+            background-color: #1a1a2e; /* Indigo-dark blue background */
+            color: #f5f5f5; /* Light text for readability */
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 3rem;
+            color: #c2c1ff; /* Soft lavender text color to contrast with indigo background */
+            margin-top: 40px;
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
+
+        /* Container */
+        .container {
+            max-width: 700px;
+            margin: 50px auto;
+            background-color: rgba(255, 255, 255, 0.1); /* Transparent white with indigo undertone */
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7); /* Soft shadow for depth */
+        }
+
+        /* Form Styling */
+        label {
+            display: block;
+            margin: 15px 0 5px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #b3b3e6; /* Soft light blue for labels */
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 25px;
+            background-color: #333;
+            color: #f5f5f5;
+            border: 1px solid #4e4e80;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-family: 'Poppins', sans-serif;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus, select:focus {
+            border-color: #807fff; /* Indigo color on focus */
+        }
+
+        /* Button Styling */
+        button {
+            width: 100%;
+            padding: 15px;
+            background-color: #807fff; /* Soft indigo */
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.3rem;
+            font-family: 'Poppins', sans-serif;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s;
+        }
+
+        button:hover {
+            background-color: #6b6adf; /* Slightly darker indigo on hover */
+            transform: translateY(-2px);
+        }
+
+        /* Result Box */
+        .result {
+            margin-top: 40px;
+            padding: 25px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            border: 1px solid #807fff; /* Indigo border */
+            font-size: 1.2rem;
+            color: #d3d3ff;
+        }
+
+        .result h3 {
+            font-size: 1.6rem;
+            color: #c2c1ff;
+        }
+
+        /* Centering and Spacing */
+        .container {
+            margin-top: 50px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .container {
+                padding: 25px;
+            }
+
+            input, select, button {
+                font-size: 1rem;
+                padding: 10px;
+            }
+
+            .result {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>AI-Enhanced Interior Design</h1>
+
+        <label for="length">Room Length (in meters):</label>
+        <input type="number" id="length" placeholder="Enter room length">
+
+        <label for="width">Room Width (in meters):</label>
+        <input type="number" id="width" placeholder="Enter room width">
+
+        <label for="height">Room Height (in meters):</label>
+        <input type="number" id="height" placeholder="Enter room height">
+
+        <label for="style">Choose a Design Style:</label>
+        <select id="style">
+            <option value="bohemian">Bohemian</option>
+            <option value="minimalist">Minimalist</option>
+            <option value="modern">Modern</option>
+            <option value="rustic">Rustic</option>
+            <option value="industrial">Industrial</option>
+        </select>
+
+        <button onclick="getDesignSuggestions()">Get Design Suggestions</button>
+
+        <div class="result" id="result">
+            <!-- Design suggestions will appear here -->
+        </div>
+    </div>
+
+    <script>
+        function getDesignSuggestions() {
+            const length = document.getElementById('length').value;
+            const width = document.getElementById('width').value;
+            const height = document.getElementById('height').value;
+            const style = document.getElementById('style').value;
+
+            if (!length || !width || !height) {
+                alert('Please fill out all dimensions');
+                return;
+            }
+
+            let suggestions = '';
+
+            if (style === 'bohemian') {
+                suggestions = `
+                    <h3>Bohemian Style</h3>
+                    <p>Use earthy tones, eclectic furniture, and natural textures. 
+                    Add woven rugs, plants, and layered textiles to create a relaxed and artistic space.</p>
+                `;
+            } else if (style === 'minimalist') {
+                suggestions are `
+                    <h3>Minimalist Style</h3>
+                    <p>Keep it simple with neutral colors, clean lines, and functional furniture. 
+                    Choose multi-purpose items and focus on reducing clutter.</p>
+                `;
+            } else if (style === 'modern') {
+                suggestions are `
+                    <h3>Modern Style</h3>
+                    <p>Embrace sleek, sophisticated designs with monochromatic palettes. 
+                    Opt for open spaces, minimal decor, and polished materials like metal and glass.</p>
+                `;
+            } else if (style === 'rustic') {
+                suggestions are `
+                    <h3>Rustic Style</h3>
+                    <p>Bring in natural wood finishes, warm colors, and organic shapes. 
+                    Expose wood beams or bricks and add vintage or handmade decor for a cozy, cabin-like vibe.</p>
+                `;
+            } else if (style === 'industrial') {
+                suggestions are `
+                    <h3>Industrial Style</h3>
+                    <p>Focus on raw, unfinished elements like exposed brick, concrete, and metal. 
+                    Combine them with sleek, modern furniture for a balanced look.</p>
+                `;
+            }
+
+            document.getElementById('result').innerHTML = suggestions;
+        }
+    </script>
+</body>
+</html>
